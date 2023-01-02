@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1080484600996",
+    "project_id": "cfood-46154",
+    "storage_bucket": "cfood-46154.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080484600996:android:cb1d3f59e3430db994da31",
+        "android_client_info": {
+          "package_name": "com.saikat1102.cfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080484600996-plgucet3o9ujptmltkbgcj9rt7fm8ult.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.saikat1102.cfood",
+            "certificate_hash": "add643ceca5a407c9b6afcebebcd1318d31d5e67"
+          }
+        },
+        {
+          "client_id": "1080484600996-gstg8ovqnb7f4gr5cns0cn5ob9jdmf7h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz7q3FxZy-D7iVPH82aEMVotakR9VPjk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080484600996-gstg8ovqnb7f4gr5cns0cn5ob9jdmf7h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
