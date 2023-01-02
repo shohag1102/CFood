@@ -71,7 +71,7 @@
             android:drawableLeft="@drawable/phonewhite"
             android:gravity="center"
             android:paddingLeft="10dp"
-            android:text="SignIn with phone"
+            android:text="SignIn with Phone"
             android:textAllCaps="false"
             android:textColor="#FFFFFF" />
 

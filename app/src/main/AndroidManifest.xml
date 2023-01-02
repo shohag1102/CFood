@@ -12,6 +12,33 @@
         android:theme="@style/Theme.CFood"
         tools:targetApi="31">
         <activity
+            android:name=".Delivery_Registration"
+            android:exported="false" />
+        <activity
+            android:name=".Delivery_Loginphone"
+            android:exported="false" />
+        <activity
+            android:name=".Delivery_Login"
+            android:exported="false" />
+        <activity
+            android:name=".Registration"
+            android:exported="false" />
+        <activity
+            android:name=".Loginphone"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".ChefRegistration"
+            android:exported="false" />
+        <activity
+            android:name=".Chefloginphone"
+            android:exported="false" />
+        <activity
+            android:name=".Cheflogin"
+            android:exported="false" />
+        <activity
             android:name=".ChooseOne"
             android:exported="false" />
         <activity
@@ -26,6 +53,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

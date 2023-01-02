@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity {
     ProgressBar progress_horizontal;
+
     private int progress;
 
     @Override
@@ -24,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         thread.start();
+
+
 
     }
 
