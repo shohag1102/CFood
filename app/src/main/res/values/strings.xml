@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CFood</string>
+    <string-array name="State">
+        <item>Maharashtra</item>
+        <item>Gujarat</item>
+    </string-array>
 </resources>

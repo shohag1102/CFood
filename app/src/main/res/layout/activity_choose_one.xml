@@ -51,7 +51,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:background="#FF5722"
-            android:text="Connect As Customer"
+            android:text="Connect As Student"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
