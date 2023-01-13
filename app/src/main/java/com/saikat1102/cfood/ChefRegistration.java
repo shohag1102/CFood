@@ -134,6 +134,24 @@ public class ChefRegistration extends AppCompatActivity {
             }
         });
 
+        Emaill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChefRegistration.this, Cheflogin.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        Phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChefRegistration.this, Chefloginphone.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
 
 
