@@ -12,6 +12,18 @@
         android:theme="@style/Theme.CFood"
         tools:targetApi="31">
         <activity
+            android:name=".Delivery_sendotp"
+            android:exported="false" />
+        <activity
+            android:name=".DeliveryFoodPanel_BottomNavigation"
+            android:exported="false" />
+        <activity
+            android:name=".DeliveryForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".Delivery_VerifyPhone"
+            android:exported="false" />
+        <activity
             android:name=".Sendotp"
             android:exported="false" />
         <activity
