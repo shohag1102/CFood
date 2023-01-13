@@ -12,6 +12,18 @@
         android:theme="@style/Theme.CFood"
         tools:targetApi="31">
         <activity
+            android:name=".Chefsendotp"
+            android:exported="false" />
+        <activity
+            android:name=".ChefForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".ChefFoodPanel_BottomNavigation"
+            android:exported="false" />
+        <activity
+            android:name=".ChefVerifyPhone"
+            android:exported="false" />
+        <activity
             android:name=".Delivery_Registration"
             android:exported="false" />
         <activity

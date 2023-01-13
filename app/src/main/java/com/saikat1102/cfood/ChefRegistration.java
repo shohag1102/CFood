@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -27,7 +28,7 @@ public class ChefRegistration extends AppCompatActivity {
     FirebaseAuth FAuth;
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
-    String fname,lname,emailid,password,confpassword,mobile,house,Area,Pincode,statee,cityy;
+    String fname,lname,emailid,password,confpassword,mobile;
     String role="Chef";
 
     @Override
@@ -107,6 +108,9 @@ public class ChefRegistration extends AppCompatActivity {
                                                                         public void onClick(DialogInterface dialog, int which) {
 
                                                                             dialog.dismiss();
+                                                                            Intent intent = new Intent(ChefRegistration.this, ChefVerifyPhone.class);
+                                                                            intent.putExtra("PhoneNumber", "+880"+mobile);
+                                                                            startActivity(intent);
 
                                                                         }
                                                                     });
@@ -179,7 +183,7 @@ public class ChefRegistration extends AppCompatActivity {
             Pass.setErrorEnabled(true);
             Pass.setError("Enter Password");
         }else{
-            if(password.length()<8){
+            if(password.length()<6){
                 Pass.setErrorEnabled(true);
                 Pass.setError("Password is Weak");
             }else{
