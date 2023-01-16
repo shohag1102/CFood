@@ -12,6 +12,9 @@
         android:theme="@style/Theme.CFood"
         tools:targetApi="31">
         <activity
+            android:name=".chefFoodPanel.Chef_postDish"
+            android:exported="false" />
+        <activity
             android:name=".Delivery_sendotp"
             android:exported="false" />
         <activity

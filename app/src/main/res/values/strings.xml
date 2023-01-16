@@ -1,7 +1,31 @@
 <resources>
     <string name="app_name">CFood</string>
-    <string-array name="State">
-        <item>Maharashtra</item>
-        <item>Gujarat</item>
+
+    <string-array name="DishName">
+        <item>Sada Vat</item>
+        <item>Dal Vat</item>
+        <item>Porota</item>
+        <item>Sobji</item>
+        <item>Dim Khicuri</item>
+        <item>Kacchi</item>
+        <item>Teheri</item>
+        <item>Beef Teheri</item>
+        <item>Singara</item>
+        <item>Samusa</item>
+        <item>Chicken Chap</item>
+        <item>Chicken Swarma</item>
+        <item>Beef Vuna</item>
+        <item>Kala Vula</item>
+        <item>Fried Rice</item>
+        <item>Chicken Chili Onion</item>
+        <item>Grill with Nun</item>
+        <item>Hydrabadi Biriany</item>
+        <item>Basmati Kacchi</item>
+        <item>Lacchi</item>
+        <item>Milk Shake</item>
+        <item>Kulfi</item>
+        <item>Plain Polaw with chicken</item>
+        <item>Mezban with chonar dal</item>
     </string-array>
+
 </resources>
