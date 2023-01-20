@@ -66,8 +66,6 @@ public class chef_postDish extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chef_post_dish);
 
-//        storage = FirebaseStorage.getInstance();
-//        storageReference = storage.getReference();
         Dishes = (Spinner)findViewById(R.id.dishes);
         desc = (TextInputLayout) findViewById(R.id.description);
         qty = (TextInputLayout) findViewById(R.id.Quantity);
@@ -106,12 +104,7 @@ public class chef_postDish extends AppCompatActivity {
                         price = pri.getEditText().getText().toString().trim();
 
                        // up();
-
                         up2();
-
-//                        if(isValid()){
-//                            uploadImage();
-//                        }
                     }
                 });
             }
@@ -121,49 +114,6 @@ public class chef_postDish extends AppCompatActivity {
 
             }
         });
-
-
-//        try {
-//            String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//            dataa = firebaseDatabase.getInstance().getReference("Chef").child(userid);
-//            dataa.addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//
-//                    Chef cheff = snapshot.getValue(Chef.class);
-//                    Log.e("errorrrrrrrrrrrr", cheff.toString());
-//
-//                    imageButton.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            onSelectImageclick(v);
-//                        }
-//                    });
-//                    post_dish.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            dishes = Dishes.getSelectedItem().toString().trim();
-//                            descrption = desc.getEditText().getText().toString().trim();
-//                            quantity = qty.getEditText().getText().toString().trim();
-//                            price = pri.getEditText().getText().toString().trim();
-//
-//                            if(isValid()){
-//                                //uploadImage();
-//                            }
-//                        }
-//                    });
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//                    Toast.makeText(chef_postDish.this, "Error" + error.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//        }catch (Exception e){
-//            Log.e("Error: ",e.getMessage());
-//        }
-
     }
 
     private void up2() {
@@ -282,7 +232,6 @@ public class chef_postDish extends AppCompatActivity {
                                 Toast.makeText(chef_postDish.this,"Dish Posted Successfully!",Toast.LENGTH_SHORT).show();
                             }
                         });
-
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -290,8 +239,6 @@ public class chef_postDish extends AppCompatActivity {
                 Toast.makeText(chef_postDish.this, "Upload failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
 
