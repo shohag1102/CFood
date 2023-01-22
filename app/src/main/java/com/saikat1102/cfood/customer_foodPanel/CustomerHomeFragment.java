@@ -30,9 +30,8 @@ import java.util.List;
 public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     RecyclerView recyclerView;
-    private List<UpdateDishModel> updateDishModelList;
-    private CustomerHomeAdapter adapter;
-    String State,City,Area;
+    public List<UpdateDishModel> updateDishModelList;
+    public CustomerHomeAdapter adapter;
     DatabaseReference dataa,databaseReference;
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -55,6 +54,7 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
             @Override
             public void run() {
                 swipeRefreshLayout.setRefreshing(true);
+
                 String  userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 dataa = FirebaseDatabase.getInstance().getReference("Customer").child(userid);
                 dataa.addListenerForSingleValueEvent(new ValueEventListener() {

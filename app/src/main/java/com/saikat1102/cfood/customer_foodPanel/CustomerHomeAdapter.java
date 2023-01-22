@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,8 +21,8 @@ import java.util.List;
 
 public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapter.ViewHolder> {
 
-    private Context mcontext;
-    private List<UpdateDishModel>updateDishModellist;
+    public Context mcontext;
+    public List<UpdateDishModel>updateDishModellist;
     DatabaseReference databaseReference;
 
     public CustomerHomeAdapter(Context context , List<UpdateDishModel>updateDishModelslist){
@@ -45,7 +44,7 @@ public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapte
 
         final UpdateDishModel updateDishModel = updateDishModellist.get(position);
         Glide.with(mcontext).load(updateDishModel.getImageURL()).into(holder.imageView);
-        holder.Dishname.setText(updateDishModel.getPrice());
+        holder.Dishname.setText(updateDishModel.getDishes());
         updateDishModel.getRandomUID();
         updateDishModel.getChefId();
         holder.Price.setText("Price: "+updateDishModel.getPrice()+"Tk");

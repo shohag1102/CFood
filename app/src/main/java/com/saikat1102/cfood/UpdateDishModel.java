@@ -2,7 +2,7 @@ package com.saikat1102.cfood;
 
 public class UpdateDishModel {
 
-    String Dishes,RandomUID,Description,Quantity,Price,ImageURL,ChefId;
+    String dishes,randomUID,description,quantity,price,imageURL,chefId;
 
     // Press Alt+insert
 
@@ -10,59 +10,69 @@ public class UpdateDishModel {
 
     }
 
+    public UpdateDishModel(String dishes, String randomUID, String description, String quantity, String price, String imageURL, String chefId) {
+        this.dishes = dishes;
+        this.randomUID = randomUID;
+        this.description = description;
+        this.quantity = quantity;
+        this.price = price;
+        this.imageURL = imageURL;
+        this.chefId = chefId;
+    }
+
     public String getDishes() {
-        return Dishes;
+        return dishes;
     }
 
     public void setDishes(String dishes) {
-        Dishes = dishes;
+        this.dishes = dishes;
     }
 
     public String getRandomUID() {
-        return RandomUID;
+        return randomUID;
     }
 
     public void setRandomUID(String randomUID) {
-        RandomUID = randomUID;
+        this.randomUID = randomUID;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getQuantity() {
-        return Quantity;
+        return quantity;
     }
 
     public void setQuantity(String quantity) {
-        Quantity = quantity;
+        this.quantity = quantity;
     }
 
     public String getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(String price) {
-        Price = price;
+        this.price = price;
     }
 
     public String getImageURL() {
-        return ImageURL;
+        return imageURL;
     }
 
     public void setImageURL(String imageURL) {
-        ImageURL = imageURL;
+        this.imageURL = imageURL;
     }
 
     public String getChefId() {
-        return ChefId;
+        return chefId;
     }
 
     public void setChefId(String chefId) {
-        ChefId = chefId;
+        this.chefId = chefId;
     }
 }
