@@ -9,12 +9,6 @@
 
 
     <item
-        android:id="@+id/PendingOrders"
-        android:icon="@drawable/ic_pending_orders_24"
-        android:title="Pending Orders" />
-
-
-    <item
         android:id="@+id/Orders"
         android:icon="@drawable/ic_orders_24"
         android:title="Orders" />

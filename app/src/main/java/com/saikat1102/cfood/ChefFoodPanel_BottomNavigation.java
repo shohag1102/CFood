@@ -3,6 +3,7 @@ package com.saikat1102.cfood;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -12,10 +13,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.saikat1102.cfood.chefFoodPanel.ChefHomeFragment;
 import com.saikat1102.cfood.chefFoodPanel.ChefOrderFragment;
-import com.saikat1102.cfood.chefFoodPanel.ChefPendingOrderFragment;
 import com.saikat1102.cfood.chefFoodPanel.ChefProfileFragment;
-import com.saikat1102.cfood.customer_foodPanel.CustomerHomeFragment;
-import com.saikat1102.cfood.customer_foodPanel.CustomerTrackFragment;
 
 public class ChefFoodPanel_BottomNavigation extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -29,10 +27,7 @@ public class ChefFoodPanel_BottomNavigation extends AppCompatActivity {
         String name = getIntent().getStringExtra("PAGE");
 
         if(name!=null){
-            if(name.equalsIgnoreCase("Orderpage")){
-                replaceFragment(new ChefPendingOrderFragment());
-            }
-            else if(name.equalsIgnoreCase("Confirmpage")){
+            if(name.equalsIgnoreCase("Confirmpage")){
                 replaceFragment(new ChefOrderFragment());
             }
             else if(name.equalsIgnoreCase("AcceptOrderpage")){
@@ -65,9 +60,6 @@ public class ChefFoodPanel_BottomNavigation extends AppCompatActivity {
                     case R.id.chefHome:
                         replaceFragment(new ChefHomeFragment());
                         return true;
-                    case R.id.PendingOrders:
-                        replaceFragment(new ChefPendingOrderFragment());
-                        return true;
                     case R.id.Orders:
                         replaceFragment(new ChefOrderFragment());
                         return true;
@@ -84,5 +76,6 @@ public class ChefFoodPanel_BottomNavigation extends AppCompatActivity {
 
     private void commence() {
         bottomNavigationView = findViewById(R.id.chef_bottom_navigation);
+
     }
 }

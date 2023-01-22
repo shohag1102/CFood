@@ -3,18 +3,15 @@ package com.saikat1102.cfood;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.saikat1102.cfood.chefFoodPanel.ChefHomeFragment;
 import com.saikat1102.cfood.customer_foodPanel.CustomerCartFragmnet;
 import com.saikat1102.cfood.customer_foodPanel.CustomerHomeFragment;
 import com.saikat1102.cfood.customer_foodPanel.CustomerOrdersFragment;
 import com.saikat1102.cfood.customer_foodPanel.CustomerProfileFragment;
-import com.saikat1102.cfood.customer_foodPanel.CustomerTrackFragment;
 
 public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity {
 
@@ -33,12 +30,7 @@ public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity {
             if(name.equalsIgnoreCase("Homepage")){
                 replaceFragment(new CustomerHomeFragment());
             }
-            else if(name.equalsIgnoreCase("Preparingpage")){
-                replaceFragment(new CustomerTrackFragment());
-            }
-            else if(name.equalsIgnoreCase("DeliveryOrderpage")){
-                replaceFragment(new CustomerTrackFragment());
-            }
+
             else if(name.equalsIgnoreCase("Thankyoupage")){
                 replaceFragment(new CustomerHomeFragment());
             }
@@ -69,9 +61,6 @@ public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity {
                         return true;
                     case R.id.Cust_order:
                         replaceFragment(new CustomerOrdersFragment());
-                        return true;
-                    case R.id.track:
-                        replaceFragment(new CustomerTrackFragment());
                         return true;
                     case R.id.cust_profile:
                         replaceFragment(new CustomerProfileFragment());

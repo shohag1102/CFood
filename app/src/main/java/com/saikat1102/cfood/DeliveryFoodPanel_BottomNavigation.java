@@ -8,9 +8,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.saikat1102.cfood.chefFoodPanel.ChefHomeFragment;
-import com.saikat1102.cfood.chefFoodPanel.ChefOrderFragment;
-import com.saikat1102.cfood.chefFoodPanel.ChefPendingOrderFragment;
 import com.saikat1102.cfood.deliveryFoodPanel.DeliveryPendingOrderFragment;
 import com.saikat1102.cfood.deliveryFoodPanel.DeliveryShipOrderFragment;
 
