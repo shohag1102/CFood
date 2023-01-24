@@ -50,6 +50,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.14.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+
     // extra dependencies
 
 //    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -68,4 +70,15 @@ dependencies {
 //    implementation 'androidx.navigation:navigation-ui:2.5.3'
 //    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 //    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '25.3.0'
+            }
+        }
+    }
 }

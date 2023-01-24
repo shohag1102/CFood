@@ -1,6 +1,9 @@
 package com.saikat1102.cfood.customer_foodPanel;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
+import com.saikat1102.cfood.MainMenu;
 import com.saikat1102.cfood.R;
 import com.saikat1102.cfood.UpdateDishModel;
 
@@ -44,11 +48,26 @@ public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapte
 
         final UpdateDishModel updateDishModel = updateDishModellist.get(position);
         Glide.with(mcontext).load(updateDishModel.getImageURL()).into(holder.imageView);
+
         holder.Dishname.setText(updateDishModel.getDishes());
         updateDishModel.getRandomUID();
         updateDishModel.getChefId();
         holder.Price.setText("Price: "+updateDishModel.getPrice()+"Tk");
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mcontext, SingleFoodDetails.class);
+                //what you want to pass
+                Uri imageUri = Uri.parse(updateDishModel.getImageURL());
+                Log.e("image", imageUri.toString());
+                intent.putExtra("image",  imageUri);
+                intent.putExtra("title", updateDishModel.getDishes());
+                intent.putExtra("price", updateDishModel.getPrice());
+                intent.putExtra("description", updateDishModel.getDescription());
 
+                mcontext.startActivity(intent);
+            }
+        });
     }
 
     @Override
