@@ -5,8 +5,10 @@ pluginManagement {
         gradlePluginPortal()
         maven {
             url ("https://jcenter.bintray.com")
-        }
-        
+            }
+
+        maven { url 'http://dl.bintray.com/amulyakhare/maven'
+            allowInsecureProtocol = true}
     }
 }
 dependencyResolutionManagement {

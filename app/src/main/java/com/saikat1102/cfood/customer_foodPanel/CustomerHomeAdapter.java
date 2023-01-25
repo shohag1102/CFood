@@ -63,6 +63,7 @@ public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapte
                 intent.putExtra("image",  imageUri);
                 intent.putExtra("title", updateDishModel.getDishes());
                 intent.putExtra("price", updateDishModel.getPrice());
+                intent.putExtra("uid", updateDishModel.getRandomUID());
                 intent.putExtra("description", updateDishModel.getDescription());
 
                 mcontext.startActivity(intent);
