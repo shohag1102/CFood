@@ -3,6 +3,7 @@ package com.saikat1102.cfood.customer_foodPanel;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -105,32 +107,31 @@ public class CustomerCartFragmnet extends Fragment {
                 builder.setView(address);
                 builder.setIcon(R.drawable.shopping_cart_24);
 
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        //Toast.makeText(getContext(), ""+total_price, Toast.LENGTH_SHORT).show();
-                        //here firebase will work
-                        Fauth = FirebaseAuth.getInstance();
-                        String phone = Fauth.getCurrentUser().getPhoneNumber();
+                builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+                    //Toast.makeText(getContext(), ""+total_price, Toast.LENGTH_SHORT).show();
+                    //here firebase will work
+                    Fauth = FirebaseAuth.getInstance();
+                    String phone = Fauth.getCurrentUser().getPhoneNumber();
 
-                        databaseReference = FirebaseDatabase.getInstance().getReference("FoodOrdered");
+                    databaseReference = FirebaseDatabase.getInstance().getReference("FoodOrdered");
 
-                        FoodOrdered foodOrdered = new FoodOrdered(phone, address.getText().toString(), cartList, total_price);
+                    FoodOrdered foodOrdered = new FoodOrdered(phone, address.getText().toString(), cartList, total_price);
 
-                        Toast.makeText(getContext(), "foodordered" + databaseReference, Toast.LENGTH_SHORT).show();
-                        Log.e("databaseeeeeeeeee", phone);
+                    Toast.makeText(getContext(), "foodordered" + databaseReference, Toast.LENGTH_SHORT).show();
+                    Log.e("databaseeeeeeeeee", phone);
 
-                        //upload to firebase
-                        databaseReference.child(Fauth.getCurrentUser().getUid())
-                                .setValue(foodOrdered).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        Toast.makeText(getContext(), "Food Uploaded Successfully", Toast.LENGTH_SHORT).show();
-                                        databaseHelper.empty_cart();
-                                    }
-                                });
+                    //upload to firebase
+                    databaseReference.child(Fauth.getCurrentUser().getUid())
+                            .setValue(foodOrdered).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(getContext(), "Food Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                                    databaseHelper.empty_cart();
 
-                    }
+                                    Log.e("listtttttt", cartList.get(0).getTitle().toString());
+                                    cartAdapter.notifyDataSetChanged();
+                                }
+                            });
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -140,9 +141,6 @@ public class CustomerCartFragmnet extends Fragment {
 
             }
         });
-
-
-
 
         return v;
     }

@@ -40,7 +40,7 @@ public class SingleFoodDetails extends AppCompatActivity {
 
         food_item_counter.setOnClickListener((ElegantNumberButton.OnClickListener) view -> {
              num = Integer.parseInt(food_item_counter.getNumber());
-            Toast.makeText(SingleFoodDetails.this, "count " + num, Toast.LENGTH_SHORT).show();
+//           Toast.makeText(SingleFoodDetails.this, "count " + num, Toast.LENGTH_SHORT).show();
         });
 
         cartImage.setOnClickListener(view -> {
@@ -51,7 +51,7 @@ public class SingleFoodDetails extends AppCompatActivity {
 //            Toast.makeText(this, "aaaaa" +title +" " + price + " " + uid + " " + num, Toast.LENGTH_SHORT).show();
 
             long id  = databaseHelper.insert_data(title, price, num, uid);
-            Toast.makeText(this, "Inserted at " + id , Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Added to cart", Toast.LENGTH_LONG).show();
         });
 
     }
