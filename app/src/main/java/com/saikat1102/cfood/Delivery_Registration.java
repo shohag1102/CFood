@@ -54,94 +54,86 @@ public class Delivery_Registration extends AppCompatActivity {
         databaseReference = firebaseDatabase.getInstance().getReference("Chef");
         FAuth = FirebaseAuth.getInstance();
 
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fname = Fname.getEditText().getText().toString().trim();
-                lname = Lname.getEditText().getText().toString().trim();
-                emailid = Email.getEditText().getText().toString().trim();
-                mobile = mobileno.getEditText().getText().toString().trim();
-                password = Pass.getEditText().getText().toString().trim();
-                confpassword = cpass.getEditText().getText().toString().trim();
+        signup.setOnClickListener(v -> {
+            fname = Fname.getEditText().getText().toString().trim();
+            lname = Lname.getEditText().getText().toString().trim();
+            emailid = Email.getEditText().getText().toString().trim();
+            mobile = mobileno.getEditText().getText().toString().trim();
+            password = Pass.getEditText().getText().toString().trim();
+            confpassword = cpass.getEditText().getText().toString().trim();
 
-                if (isValid()){
-                    final ProgressDialog mDialog = new ProgressDialog(Delivery_Registration.this);
-                    mDialog.setCancelable(false);
-                    mDialog.setCanceledOnTouchOutside(false);
-                    mDialog.setMessage("Registration in progress please wait......");
-                    mDialog.show();
+            if (isValid()){
+                final ProgressDialog mDialog = new ProgressDialog(Delivery_Registration.this);
+                mDialog.setCancelable(false);
+                mDialog.setCanceledOnTouchOutside(false);
+                mDialog.setMessage("Registration in progress please wait......");
+                mDialog.show();
 
-                    FAuth.createUserWithEmailAndPassword(emailid,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+                FAuth.createUserWithEmailAndPassword(emailid,password).addOnCompleteListener(task -> {
 
-                            if (task.isSuccessful()){
-                                String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                databaseReference = FirebaseDatabase.getInstance().getReference("User").child(useridd);
-                                final HashMap<String , String> hashMap = new HashMap<>();
-                                hashMap.put("Role",role);
-                                databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(useridd);
+                        final HashMap<String, String> hashMap = new HashMap<>();
+                        hashMap.put("Role", role);
+                        databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
 
-                                        HashMap<String , String> hashMap1 = new HashMap<>();
-                                        hashMap1.put("Mobile No",mobile);
-                                        hashMap1.put("First Name",fname);
-                                        hashMap1.put("Last Name",lname);
-                                        hashMap1.put("EmailId",emailid);
-                                        hashMap1.put("Password",password);
-                                        hashMap1.put("Confirm Password",confpassword);
+                                HashMap<String, String> hashMap1 = new HashMap<>();
+                                hashMap1.put("Mobile No", mobile);
+                                hashMap1.put("First Name", fname);
+                                hashMap1.put("Last Name", lname);
+                                hashMap1.put("EmailId", emailid);
+                                hashMap1.put("Password", password);
+                                hashMap1.put("Confirm Password", confpassword);
 
-                                        firebaseDatabase.getInstance().getReference("DeliveryPerson")
-                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                                .setValue(hashMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Void> task) {
-                                                        mDialog.dismiss();
+                                firebaseDatabase.getInstance().getReference("DeliveryPerson")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(hashMap1).addOnCompleteListener(task1 -> {
+                                            mDialog.dismiss();
 
-                                                        FAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            FAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task1) {
+
+                                                    if (task1.isSuccessful()) {
+                                                        AlertDialog.Builder builder = new AlertDialog.Builder(Delivery_Registration.this);
+                                                        builder.setMessage("You Have Registered! Make Sure To Verify Your Email");
+                                                        builder.setCancelable(false);
+                                                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                                             @Override
-                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                            public void onClick(DialogInterface dialog, int which) {
 
-                                                                if(task.isSuccessful()){
-                                                                    AlertDialog.Builder builder = new AlertDialog.Builder(Delivery_Registration.this);
-                                                                    builder.setMessage("You Have Registered! Make Sure To Verify Your Email");
-                                                                    builder.setCancelable(false);
-                                                                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                                                        @Override
-                                                                        public void onClick(DialogInterface dialog, int which) {
+                                                                dialog.dismiss();
 
-                                                                            dialog.dismiss();
+                                                                String phonenumber = "+880" + mobile;
+                                                                Intent b = new Intent(Delivery_Registration.this, Delivery_VerifyPhone.class);
+                                                                b.putExtra("PhoneNumber", phonenumber);
+                                                                startActivity(b);
 
-                                                                            String phonenumber = "+880" + mobile;
-                                                                            Intent b = new Intent(Delivery_Registration.this,Delivery_VerifyPhone.class);
-                                                                            b.putExtra("phonenumber",phonenumber);
-                                                                            startActivity(b);
-
-                                                                        }
-                                                                    });
-                                                                    AlertDialog Alert = builder.create();
-                                                                    Alert.show();
-                                                                }else{
-                                                                    mDialog.dismiss();
-                                                                    ReusableCodeForAll.ShowAlert(Delivery_Registration.this,"Error",task.getException().getMessage());
-                                                                }
                                                             }
                                                         });
-
+                                                        AlertDialog Alert = builder.create();
+                                                        Alert.show();
+                                                    } else {
+                                                        mDialog.dismiss();
+                                                        ReusableCodeForAll.ShowAlert(Delivery_Registration.this, "Error", task1.getException().getMessage());
                                                     }
-                                                });
+                                                }
+                                            });
 
-                                    }
-                                });
-                            }else{
-                                mDialog.dismiss();
-                                ReusableCodeForAll.ShowAlert(Delivery_Registration.this,"Error",task.getException().getMessage());
+                                        });
 
                             }
-                        }
-                    });
-                }
+                        });
+                    }
+//                            }else{
+//                                mDialog.dismiss();
+//                                ReusableCodeForAll.ShowAlert(Delivery_Registration.this,"Error",task.getException().getMessage());
+//
+//                            }
+                });
             }
         });
 

@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.saikat1102.cfood.deliveryFoodPanel.DeliveryPendingOrderFragment;
-import com.saikat1102.cfood.deliveryFoodPanel.DeliveryShipOrderFragment;
+import com.saikat1102.cfood.deliveryFoodPanel.DeliveryProfileFragment;
 
 public class DeliveryFoodPanel_BottomNavigation extends AppCompatActivity {
     BottomNavigationView delivery_bottom_navigation;
@@ -34,7 +34,7 @@ public class DeliveryFoodPanel_BottomNavigation extends AppCompatActivity {
         }
 
         implementBottomNavigation();
-        replaceFragment(new DeliveryShipOrderFragment());
+        replaceFragment(new DeliveryProfileFragment());
 
 
     }
@@ -49,7 +49,7 @@ public class DeliveryFoodPanel_BottomNavigation extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.shiporders:
-                        replaceFragment(new DeliveryShipOrderFragment());
+                        replaceFragment(new DeliveryProfileFragment());
                         break;
                     case R.id.pendingorders:
                         replaceFragment(new DeliveryPendingOrderFragment());

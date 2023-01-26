@@ -91,13 +91,7 @@ public class Login extends AppCompatActivity {
                     finish();
                 }
             });
-            Forgotpassword.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(Login.this,ForgotPassword.class));
-                    finish();
-                }
-            });
+
             Signinphone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
