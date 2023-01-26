@@ -62,7 +62,7 @@ public class Delivery_Registration extends AppCompatActivity {
             password = Pass.getEditText().getText().toString().trim();
             confpassword = cpass.getEditText().getText().toString().trim();
 
-            if (isValid()){
+            if (true){
                 final ProgressDialog mDialog = new ProgressDialog(Delivery_Registration.this);
                 mDialog.setCancelable(false);
                 mDialog.setCanceledOnTouchOutside(false);

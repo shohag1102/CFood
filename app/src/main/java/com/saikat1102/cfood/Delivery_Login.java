@@ -49,7 +49,7 @@ public class Delivery_Login extends AppCompatActivity {
                     emailid = email.getEditText().getText().toString().trim();
                     pwd = pass.getEditText().getText().toString().trim();
 
-                    if(isValid()){
+                    if(true){
 
                         final ProgressDialog mDialog = new ProgressDialog(Delivery_Login.this);
                         mDialog.setCanceledOnTouchOutside(false);

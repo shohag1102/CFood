@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_orders_24"
         android:title="Pending Orders" />
     <item
-        android:id="@+id/shiporders"
+        android:id="@+id/profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Profile" />
 </menu>

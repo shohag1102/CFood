@@ -34,13 +34,13 @@ public class DeliveryFoodPanel_BottomNavigation extends AppCompatActivity {
         }
 
         implementBottomNavigation();
-        replaceFragment(new DeliveryProfileFragment());
+        replaceFragment(new DeliveryPendingOrderFragment());
 
 
     }
 
     private void replaceFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containerbott,fragment).commit();
     }
 
     private void implementBottomNavigation() {
@@ -48,7 +48,7 @@ public class DeliveryFoodPanel_BottomNavigation extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.shiporders:
+                    case R.id.profile:
                         replaceFragment(new DeliveryProfileFragment());
                         break;
                     case R.id.pendingorders:
