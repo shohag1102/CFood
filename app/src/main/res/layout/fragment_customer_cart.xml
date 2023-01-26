@@ -10,6 +10,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView"
+        android:layout_above="@+id/order_now_btn"
+        android:visibility="visible"
         android:orientation="vertical"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/no_item_TV"
+        android:text="Your cart is empty"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="#BDBABA"
+        android:layout_centerInParent="true"
+        />
+
+    <Button
+        android:id="@+id/order_now_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="40dp"
+        android:background="#FF9800"
+        android:letterSpacing=".5"
+        android:visibility="visible"
+        android:text="Order Now"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

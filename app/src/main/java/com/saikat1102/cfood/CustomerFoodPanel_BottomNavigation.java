@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.saikat1102.cfood.customer_foodPanel.CustomerCartFragmnet;
 import com.saikat1102.cfood.customer_foodPanel.CustomerHomeFragment;
-import com.saikat1102.cfood.customer_foodPanel.CustomerOrdersFragment;
 import com.saikat1102.cfood.customer_foodPanel.CustomerProfileFragment;
 
 public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity {
@@ -58,9 +57,6 @@ public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity {
                         return true;
                     case R.id.cart:
                         replaceFragment(new CustomerCartFragmnet());
-                        return true;
-                    case R.id.Cust_order:
-                        replaceFragment(new CustomerOrdersFragment());
                         return true;
                     case R.id.cust_profile:
                         replaceFragment(new CustomerProfileFragment());

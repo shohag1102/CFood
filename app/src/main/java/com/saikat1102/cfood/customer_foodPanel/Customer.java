@@ -1,7 +1,7 @@
 package com.saikat1102.cfood.customer_foodPanel;
 
 public class Customer {
-    private String firstName,lastName,password,confirmPassword,emailId,mobileNo;
+    public  String firstName,lastName,password,confirmPassword,emailId,mobileNo;
 
     public Customer(){
     }

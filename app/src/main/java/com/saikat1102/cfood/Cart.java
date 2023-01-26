@@ -2,12 +2,12 @@ package com.saikat1102.cfood;
 
 public class Cart {
     String title;
-    int price, quantity;
+    String price, quantity;
 
     public Cart() {
     }
 
-    public Cart(String title, int price, int quantity) {
+    public Cart(String title, String price, String quantity) {
         this.title = title;
         this.price = price;
         this.quantity = quantity;
@@ -21,19 +21,19 @@ public class Cart {
         this.title = title;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 }
