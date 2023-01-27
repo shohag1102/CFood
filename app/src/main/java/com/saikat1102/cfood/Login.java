@@ -104,7 +104,7 @@ public class Login extends AppCompatActivity {
         }
 
     }
-    String emailpattern  = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String emailpattern  = "^u[0-9]{7}@student\\.cuet\\.ac\\.bd$";
 
     public boolean isValid(){
 

@@ -54,13 +54,15 @@ public class ChefOrderFragment extends Fragment {
 
         getActivity().setTitle("New Orders");
 
+        String orderAddress = "hMcR6sZiSQaQsllMekaZOIyZdfo1";
+
         //currentUser = String.valueOf(FirebaseDatabase.getInstance().getReference("FoodOrdered").child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser())));
         //System.out.println(firebaseAuth.getCurrentUser().toString());
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("FoodOrdered").child("XvVAhY5vWPWb7UuPRjMtOEryTdD3").child("address");
-        databaseReference1 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child("XvVAhY5vWPWb7UuPRjMtOEryTdD3").child("phone_number");
-        databaseReference2 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child("XvVAhY5vWPWb7UuPRjMtOEryTdD3").child("total_price");
-        databaseReference3 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child("XvVAhY5vWPWb7UuPRjMtOEryTdD3").child("foods");
+        databaseReference = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("address");
+        databaseReference1 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("phone_number");
+        databaseReference2 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("total_price");
+        databaseReference3 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("foods");
 
         //address
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -125,7 +127,6 @@ public class ChefOrderFragment extends Fragment {
 
             }
         });
-
         return v;
     }
 }
