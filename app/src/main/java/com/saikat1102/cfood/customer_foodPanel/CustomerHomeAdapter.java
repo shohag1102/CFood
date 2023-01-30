@@ -53,7 +53,7 @@ public class CustomerHomeAdapter extends RecyclerView.Adapter<CustomerHomeAdapte
         updateDishModel.getRandomUID();
         updateDishModel.getChefId();
         holder.Price.setText("Price: "+updateDishModel.getPrice()+"Tk");
-        holder.imageView.setOnClickListener(new View.OnClickListener() {
+        holder.Dishname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mcontext, SingleFoodDetails.class);

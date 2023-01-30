@@ -25,6 +25,7 @@ import com.saikat1102.cfood.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 
 public class ChefOrderFragment extends Fragment {
@@ -54,10 +55,8 @@ public class ChefOrderFragment extends Fragment {
 
         getActivity().setTitle("New Orders");
 
-        String orderAddress = "hMcR6sZiSQaQsllMekaZOIyZdfo1";
+        String orderAddress = "qIfv7XP7kXU4NwYOqmQpYfcTCQy2";
 
-        //currentUser = String.valueOf(FirebaseDatabase.getInstance().getReference("FoodOrdered").child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser())));
-        //System.out.println(firebaseAuth.getCurrentUser().toString());
 
         databaseReference = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("address");
         databaseReference1 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("phone_number");
@@ -68,7 +67,7 @@ public class ChefOrderFragment extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                address = snapshot.getValue().toString();
+                address = (String) snapshot.getValue();
                 address_student.setText("Address : "+address);
             }
             @Override
@@ -81,7 +80,7 @@ public class ChefOrderFragment extends Fragment {
         databaseReference1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                phone = snapshot.getValue().toString();
+                phone = (String) snapshot.getValue();
                 phone_student.setText("Phone Number : "+phone);
             }
             @Override
@@ -95,7 +94,7 @@ public class ChefOrderFragment extends Fragment {
         databaseReference2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                total_price = snapshot.getValue().toString();
+                total_price = (String) snapshot.getValue();
                 total_price_student.setText("Total : "+total_price +" Tk");
 
             }

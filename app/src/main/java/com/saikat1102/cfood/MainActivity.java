@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -28,10 +30,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_main);
-
-        init();
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -39,10 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 mainMenu();
 
             }
-        }, 300);
-
-
-
+        }, 400);
     }
 
     private void mainMenu() {
@@ -101,13 +102,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-    }
-
-
-
-
-    public void init(){
-
     }
 
 }

@@ -117,8 +117,8 @@ public class CustomerCartFragmnet extends Fragment {
 
                     FoodOrdered foodOrdered = new FoodOrdered(phone, address.getText().toString(), cartList, total_price);
 
-                    Toast.makeText(getContext(), "foodordered" + databaseReference, Toast.LENGTH_SHORT).show();
-                    Log.e("databaseeeeeeeeee", phone);
+                    //Toast.makeText(getContext(), "foodordered" + databaseReference, Toast.LENGTH_SHORT).show();
+//                    Log.e("databaseeeeeeeeee", phone);
 
                     //upload to firebase
                     databaseReference.child(Fauth.getCurrentUser().getUid())

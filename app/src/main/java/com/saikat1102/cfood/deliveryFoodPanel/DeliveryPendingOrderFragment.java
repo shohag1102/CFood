@@ -52,17 +52,19 @@ public class DeliveryPendingOrderFragment extends Fragment {
         foods_student = v.findViewById(R.id.foods_student);
         total_price_student = v.findViewById(R.id.total_price_student);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("FoodOrdered").child("XvVAhY5vWPWb7UuPRjMtOEryTdD3").child("address");
-        databaseReference1 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child("XvVAhY5vWPWb7UuPRjMtOEryTdD3").child("phone_number");
-        databaseReference2 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child("XvVAhY5vWPWb7UuPRjMtOEryTdD3").child("total_price");
-        databaseReference3 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child("XvVAhY5vWPWb7UuPRjMtOEryTdD3").child("foods");
+        String orderAddress = "qIfv7XP7kXU4NwYOqmQpYfcTCQy2";
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("address");
+        databaseReference1 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("phone_number");
+        databaseReference2 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("total_price");
+        databaseReference3 = FirebaseDatabase.getInstance().getReference("FoodOrdered").child(orderAddress).child("foods");
 
 
         //address
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                address = snapshot.getValue().toString();
+                address = (String) snapshot.getValue();
                 address_student.setText("Address : "+address);
             }
             @Override
@@ -75,7 +77,7 @@ public class DeliveryPendingOrderFragment extends Fragment {
         databaseReference1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                phone = snapshot.getValue().toString();
+                phone = (String) snapshot.getValue();
                 phone_student.setText("Phone Number : "+phone);
             }
             @Override
@@ -88,7 +90,7 @@ public class DeliveryPendingOrderFragment extends Fragment {
         databaseReference2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                total_price = snapshot.getValue().toString();
+                total_price = (String) snapshot.getValue();
                 total_price_student.setText("Total : "+total_price +" Tk");
 
             }
